@@ -17,7 +17,14 @@
    - The second ( the middle one ) potentiometer controls the intensity of the Green color 🟢
    - The third ( right side ) potentiometer controls the intensity of the Blue color 🔵
 
-## Code 
+### Code 
 💻 https://github.com/Tudorr02/IntroductionToRobotics/blob/main/2nd%20Laboratory%20-%20PWM/Laborator_2.ino
+### Photo
+<img src="https://github.com/Tudorr02/IntroductionToRobotics/assets/92024989/702ed900-0de1-42eb-ae39-41b40ba1db6a" width="500" height="500">
+
+### Video
+https://youtube.com/shorts/UV9fsi2b-7M
+
+
 
 
