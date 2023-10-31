@@ -71,15 +71,11 @@ void FloorTrigger(const int buttonPin, int & lastButtonState, unsigned long & la
   }
   
   lastButtonState = reading;
-
 }
 
 void goToFloor(byte & fromFloor, byte toFloor){
 
-  
     if(millis()-lastFloorTime>floorDelay){
-  
-  
       if(fromFloor== toFloor){
         digitalWrite(floorLedPin[toFloor],HIGH);
         digitalWrite(greenLedPin,HIGH);
@@ -88,22 +84,17 @@ void goToFloor(byte & fromFloor, byte toFloor){
         state=2;
         lastSoundTime=millis();
       }
-      else{
-        
+      else{ 
         int step;
-
         if(fromFloor<toFloor)
           step=1;
         else
           step=-1;
-
-
-        
           digitalWrite(floorLedPin[fromFloor],ledState);
 
           if(ledState==LOW)
             fromFloor+=step;
-          
+         
           ledState=!ledState;
           lastFloorTime=millis();
       }
@@ -146,7 +137,7 @@ void loop() {
       greenLedToggle();
     }else
     closeSound();
-    
+   
   }else if(state==2){
     finishSound();
     digitalWrite(greenLedPin,HIGH);
@@ -159,12 +150,10 @@ void loop() {
   }
 
   if(state==0){
-
     FloorTrigger(floorButtonPin[0], lastButtonState[0] , lastDebounceTime[0], floorButtonState[0],wantedFloor);
     FloorTrigger(floorButtonPin[1], lastButtonState[1] , lastDebounceTime[1], floorButtonState[1],wantedFloor);
     FloorTrigger(floorButtonPin[2], lastButtonState[2] , lastDebounceTime[2], floorButtonState[2],wantedFloor);
 
-    
     if(wantedFloor>=0 && wantedFloor<3 && wantedFloor!=lastFloor)
       state=1;
 
