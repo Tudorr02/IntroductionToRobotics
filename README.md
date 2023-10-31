@@ -50,3 +50,12 @@ It debounces the button presses and identifies the desired floor when a button i
 It manages the floor LED indicators and the movement of the elevator between floors.
 - **greenLedToggle() Function**: Toggles the state of a green LED at regular intervals to indicate elevator operation.
 - **moveSound()** **finishSound()** and **closeSound()** Functions: These functions generate different tones on a sound output pin to indicate different states of the elevator operation.
+### Code 
+💻 https://github.com/Tudorr02/IntroductionToRobotics/blob/main/2nd%20Homework%20-%20Elevator%20wannabe/Laborator_3.ino
+### Photo
+<img src="https://github.com/Tudorr02/IntroductionToRobotics/assets/92024989/b2527be9-74b6-4ffa-bf62-c35f4db4b913" width="500" height="500">
+
+### Video
+[https://youtube.com/shorts/UV9fsi2b-7M](https://youtu.be/b93LjvrGLxs)https://youtu.be/b93LjvrGLxs
+
+
