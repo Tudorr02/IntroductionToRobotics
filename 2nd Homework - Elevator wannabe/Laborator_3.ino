@@ -98,11 +98,7 @@ void goToFloor(byte & fromFloor, byte toFloor){
           ledState=!ledState;
           lastFloorTime=millis();
       }
-    
-
     }
-
-  
 }
 
 void greenLedToggle(){
@@ -156,11 +152,5 @@ void loop() {
 
     if(wantedFloor>=0 && wantedFloor<3 && wantedFloor!=lastFloor)
       state=1;
-
   }
-
-  
-
-
-  
 }
