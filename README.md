@@ -58,4 +58,31 @@ It manages the floor LED indicators and the movement of the elevator between flo
 ### Video
 [https://youtube.com/shorts/UV9fsi2b-7M](https://youtu.be/b93LjvrGLxs)https://youtu.be/b93LjvrGLxs
 
+# Homework 3
+  ### Requirements
+   The  initial  position  should  be  on  the  DP.  The  currentposition always blinks (irrespective of the fact that the segment is on oroff).  Use the joystick to move from one position to neighbors (see table forcorresponding movement).  Short pressing the button toggles the           segmentstate  from  ON  to  OFF  or  from  OFF  to  ON.  Long  pressing  the  buttonresets the entire display by turning all the segments OFF and moving thecurrent position to the decimal point. Use `interrupts`!
+   #### Be careful :
+   - Joystick movements should be done with toggle, as in the lab (joy-Moved, etc)
+   - For CTI, it is part of requirement to use interrupts.
+   - The  code  in  the  lab  for  joystick  movement  is  not  perfect  and  can be  improved.   The  code  should  be  wrapped  in  a  function  and  the constraint between 0 and 9 can be simplified.
+
+  ### Implementation details
+      
+   - The `segmentMatrix` array is an implementation detail used to map the segments of a 7-segment LED display to joystick inputs. It enables dynamic selection and activation of specific segments based on the joystick's directional input.
+    <img src="https://github.com/Tudorr02/IntroductionToRobotics/assets/92024989/d366bc22-7d76-45cf-aeac-b7ae9e4dd6d9" width="500" height="250">
+   - The **blink()** function is responsible for creating a blinking effect on a particular segment of the 7-segment display. This detail is implemented through toggling the state of the specified segment at regular intervals, enhancing the visual feedback for users.
+   - The **readPosition()** and **joystickRead()** functions handle the processing of analog joystick inputs. The implementation detail here involves monitoring the joystick's analog readings, comparing them to a standard threshold, and determining the joystick's direction (up, down, left, or right). These details are vital for responsive interaction with the joystick.
+   - The **swDebounce()** function is an interrupt service routine designed to debounce the switch input. This implementation detail addresses switch bounce, ensuring that the switch's state change is detected accurately and reliably.
+   - The **resetSegments()** function is an implementation detail used to reset all segments of the 7-segment display to their OFF state. It is triggered after a prolonged switch press, ensuring that the system can return to a known state.
+
+
+### Code 
+💻 [https://github.com/Tudorr02/IntroductionToRobotics/blob/main/2nd%20Laboratory%20-%20PWM/Laborator_2.ino](https://github.com/Tudorr02/IntroductionToRobotics/blob/main/3rd%20Homework%20-%207%20segment%20display%20drawing/sketch_nov4a.ino)
+### Photo
+<img src="https://github.com/Tudorr02/IntroductionToRobotics/assets/92024989/25e0318d-6c96-4d4b-9ddb-22a584f79acd" width="500" height="500">
+<img src="https://github.com/Tudorr02/IntroductionToRobotics/assets/92024989/9b5521e8-d78a-4a5f-a419-890089b6badf" width="500" height="500">
+
+### Video
+[https://youtube.com/shorts/UV9fsi2b-7M](https://youtube.com/shorts/Bmy6azuQxgY?si=GB1e-MOokvwtQPSW)https://youtube.com/shorts/Bmy6azuQxgY?si=GB1e-MOokvwtQPSW
+
 
