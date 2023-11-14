@@ -132,9 +132,10 @@ Laps are stored in an array (`laps`) with a specified lap count (`lapCount`). La
 #### *Display Update and Shift Register*
 The `writeReg` function updates the shift register with the current digit's encoding. The `activateDisplay` function manages which digit is currently active.
 
-### Sources: 
-*Debounce on a Pushbutton template* : https://docs.arduino.cc/built-in-examples/digital/Debounce
-*Debounce using interrupts template* : https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/
+
+
+### Bonus:
+- Empty LAP is displayed as `_ _ _ _`
 ### Code 
 💻 https://github.com/Tudorr02/IntroductionToRobotics/blob/main/4th%20Homework%20-%20Stopwatch%20timer/Laborator_5.ino
 ### Photo
@@ -142,5 +143,9 @@ The `writeReg` function updates the shift register with the current digit's enco
 
 ### Video
 https://youtube.com/shorts/RqltP6ljy88?feature=share
+
+### Sources: 
+- *Debounce on a Pushbutton template* : https://docs.arduino.cc/built-in-examples/digital/Debounce
+- *Debounce using interrupts template* : https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/
 
 
