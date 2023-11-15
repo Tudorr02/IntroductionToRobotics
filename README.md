@@ -20,7 +20,8 @@
    - picture of the setup
    - video
 
-## Homework 1 [back to top](#introduction-to-robotics-2023-2024-)
+## Homework 1  
+
   ### Requirements
   Use a separate potentiometer for controlling each color of the RGB LED : Red, Green and Blue. This control must leverage digital electronics. Specifically, you need to read the potentiometer’s value with Arduino and then write a mapped value to the LED pins.
 
@@ -36,6 +37,8 @@
 
 ### Video
 https://youtube.com/shorts/UV9fsi2b-7M
+
+##### [back to top](#introduction-to-robotics-2023-2024-)
 
 ## Homework 2
   > This  assignment  involves  simulating  a  3-floor  elevator  control  system  usingLEDs, buttons, and a buzzer with Arduino.
@@ -70,6 +73,7 @@ It manages the floor LED indicators and the movement of the elevator between flo
 
 ### Video
 [https://youtube.com/shorts/UV9fsi2b-7M](https://youtu.be/b93LjvrGLxs)https://youtu.be/b93LjvrGLxs
+##### [back to top](#introduction-to-robotics-2023-2024-)
 
 # Homework 3
   > This project controls the position of the segment and ”draw” it on the display.  The movement between segments should be natural, meaning they should jump from the current positiononly to neighbors, but without passing through ”walls”.
@@ -98,7 +102,7 @@ It manages the floor LED indicators and the movement of the elevator between flo
 
 ### Video
 [https://youtube.com/shorts/UV9fsi2b-7M](https://youtube.com/shorts/Bmy6azuQxgY?si=GB1e-MOokvwtQPSW)https://youtube.com/shorts/Bmy6azuQxgY?si=GB1e-MOokvwtQPSW
-
+##### [back to top](#introduction-to-robotics-2023-2024-)
 # Homework 4
 > Using the 4 digit 7 segment display and 3 buttons, you should implement a stopwatch timer that counts in 10ths of a secondand has a save lap functionality (similar to most basic stopwatch functionson most phones).
   ### Requirements
@@ -160,4 +164,4 @@ https://youtube.com/shorts/RqltP6ljy88?feature=share
 - *Debounce on a Pushbutton template* : https://docs.arduino.cc/built-in-examples/digital/Debounce
 - *Debounce using interrupts template* : https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/
 
-
+##### [back to top](#introduction-to-robotics-2023-2024-)
