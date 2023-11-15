@@ -11,7 +11,7 @@
   
   
   ![myimage](https://media.giphy.com/media/tczJoRU7XwBS8/giphy.gif)
-
+ <a style="color:red;" name="hardware-setup">Hardware Setup</a>
 
   ## Each homework contains :
    - requirements
@@ -20,8 +20,7 @@
    - picture of the setup
    - video
 
-## Homework 1
-  [back to top](#Introduction-To-Robotics-2023-2024)
+## Homework 1 [back to top](introduction-to-robotics-2023-2024-)
   ### Requirements
   Use a separate potentiometer for controlling each color of the RGB LED : Red, Green and Blue. This control must leverage digital electronics. Specifically, you need to read the potentiometer’s value with Arduino and then write a mapped value to the LED pins.
 
