@@ -1,11 +1,14 @@
 # Introduction To Robotics 2023-2024 🤖
   This GitHub repository is dedicated to my laboratory homeworks.<br />
-   - [1st Homework - PWM ](#homework-1)
-   - [2nd Homework - Elevator Wannabe](#homework-2)
-   - [3rd Homework - 7 segment display drawing ](#homework-3)
-   - [4th Homework - Stopwatch timer ](#homework-4)
+  
 
-     
+  |Homework |Name|
+  |:---:|:---:|
+  |[1st Homework ](#homework-1)| PWM RGB |
+  |[2nd Homework ](#homework-2)| Elevator Wannabe|
+  |[3rd Homework ](#homework-3)| 7 segment display drawing|
+  |[4th Homework ](#homework-4)| Stopwatch timer|                
+  
   ![myimage](https://media.giphy.com/media/tczJoRU7XwBS8/giphy.gif)
 
 
