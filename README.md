@@ -188,7 +188,7 @@ The code utilizes a state machine with different states:
 <img src="https://github.com/Tudorr02/IntroductionToRobotics/assets/92024989/c156625d-031f-41aa-8a10-ea9a1db340df" width="500" height="500">
 
 ### Video
-
+https://youtu.be/9sSg39AyvPg
 
 ### Sources: 
 
