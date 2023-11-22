@@ -185,6 +185,7 @@ The code utilizes a state machine with different states:
 ### Code 
 💻 https://github.com/Tudorr02/IntroductionToRobotics/blob/main/5th%20Homework%20-%20Pseudo-smart%20environment%20monitor%20and%20logger/Tema5.ino
 ### Photo
+<img src="https://github.com/Tudorr02/IntroductionToRobotics/assets/92024989/c156625d-031f-41aa-8a10-ea9a1db340df" width="500" height="500">
 
 ### Video
 
