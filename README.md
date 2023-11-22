@@ -179,23 +179,16 @@ https://youtube.com/shorts/RqltP6ljy88?feature=share
 
 The code utilizes a state machine with different states:
 
-- `INITIAL_STATE`: Initial state for setup.
-- `COUNTING_STATE`: Stopwatch is actively counting.
-- `PAUSE_STATE`: Stopwatch is paused.
-- `LAP_STATE_ADD`: Lap is added during counting state.
-- `LAP_STATE_CYCLE`: Cycling through lap display.
 
 ### Bonus:
 
 ### Code 
-💻 
+💻 https://github.com/Tudorr02/IntroductionToRobotics/blob/main/5th%20Homework%20-%20Pseudo-smart%20environment%20monitor%20and%20logger/Tema5.ino
 ### Photo
 
 ### Video
-https://youtube.com/shorts/RqltP6ljy88?feature=share
+
 
 ### Sources: 
-- *Debounce on a Pushbutton template* : https://docs.arduino.cc/built-in-examples/digital/Debounce
-- *Debounce using interrupts template* : https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/
 
 ##### [back to top](#introduction-to-robotics-2023-2024-)
