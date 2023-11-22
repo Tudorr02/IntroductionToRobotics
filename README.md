@@ -290,6 +290,6 @@ Controls the flow of the program with three distinct states:
 https://youtu.be/9sSg39AyvPg
 
 ### Sources: 
-- minimizing the percentage of dynamic memory usage :  https://www.baldengineer.com/arduino-f-macro.html
+- _minimizing_ the percentage of dynamic memory usage :  https://www.baldengineer.com/arduino-f-macro.html
 
 ##### [back to top](#introduction-to-robotics-2023-2024-)
