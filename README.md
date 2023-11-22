@@ -196,16 +196,90 @@ https://youtube.com/shorts/RqltP6ljy88?feature=share
    - **4.2** ***LED: Toggle Automatic ON/OFF:*** <br>  If  automatic  mode  isON, then the led color should be GREEN when all sensors value donot exceed threshold values (aka no alert) and RED when there is analert (aka ANY sensor value exceeds the threshold). When automaticmode is OFF, then the LED should use the last saved RGB values.<br>
    - **4.3** ***Back:*** <br> Return to the main menu.<br>
   
-  ### Implementation details
-      
-  #### *Components Used*
+  ### Main Components:
+- **Menu Navigation**: Utilizes an enumeration (`Menu`) for menu options, supporting easy navigation through main and sub-menus.
+- **Sensor Control**: Interfaces with ultrasonic and LDR (Light Dependent Resistor) sensors, including setting thresholds and sampling intervals.
+- **LED Control**: Manages an RGB LED, allowing manual color control and an automatic alert mode based on sensor readings.
+- **Data Logging**: Stores sensor data in EEPROM and provides functionality to display and reset this logged data.
+- **EEPROM Management**: Handles reading and writing of various settings and logged data to EEPROM.
 
-#### *State Machine*
+### Key Functionalities:
+- **Menu System**: Facilitates cycling through main and sub-menus, executing functions based on user input.
+- **Sensor Reading and Alerting**: Regularly samples sensors, comparing readings to set thresholds to trigger alerts.
+- **LED Management**: Offers manual control over LED colors and an automatic mode that changes colors based on sensor alerts.
+- **Data Storage and Retrieval**: Logs sensor readings to EEPROM and retrieves them on command.
+- **Settings Persistence**: Saves and retrieves settings like thresholds, sampling rates, and LED states from EEPROM, ensuring persistence across power cycles.
 
-The code utilizes a state machine with different states:
+### Implementation Details:
+- **Locked States**: Uses a `locked` variable to manage program flow, distinguishing between menu navigation, function execution, and sensor reading.
+- **Pin Configuration**: Defines and initializes GPIO pins for sensors and LED.
+- **Function Modularization**: Each menu option is associated with a specific function, streamlining the process of adding or modifying features.
+- **EEPROM Data Handling**: Employs addresses and counters to efficiently store and manage sensor data and settings in EEPROM.
+- **Sensor Functions**: Includes specialized functions for reading and processing data from ultrasonic and LDR sensors.
+
+###  Menu States (Enum 'Menu'):
+Enumerates various states of the menu system, including both main menu options and their sub-menus. Examples:
+- `MAIN_MENU`
+- `SENSOR_SETTINGS`
+- `RESET_LOGGER_DATA`
+- `SYSTEM_STATUS`
+- `RGB_LED_CONTROL`
+- Sub-options like `SENSORS_SAMPLING_INTERVAL`, `ULTRASONIC_ALERT_THRESHOLD`, etc.
+
+### Program Flow State (`locked` Variable):
+Controls the flow of the program with three distinct states:
+- `0`: Menu navigation mode, allowing the user to cycle through different menu options.
+- `1`: Reading input for a specific function. The program expects user input for the selected menu option.
+- `2`: Similar to state `1`, but specifically for reading sensor data without blocking other operations.
+
+
+### Variables Description:
+- **Menu state**: Enumerates different menu states for navigation.
+- **byte locked**: Manages program flow; `0` for menu navigation, `1` for input reading, `2` for sensor reading.
+- **byte ultrasonicEchoPin**, **byte ultrasonicTrigPin**: Pins for the ultrasonic sensor.
+- **byte LDRPin**: Pin for the LDR sensor.
+- **unsigned long lastSensorsRead**: Tracks the last time sensors were read.
+- **int counterLDR**, **int counterUltrasonic**: Counters for LDR and ultrasonic sensor data stored in EEPROM.
+- **byte colorRedPin**, **byte colorBluePin**, **byte colorGreenPin**: Pins for RGB LED.
+- **byte alertUltrasonic**, **byte alertLDR**: Flags for ultrasonic and LDR alerts.
+- **byte showUltrasonic**, **byte showLDR**: Flags to control sensor data display.
+- **byte ledState**: State of the LED (manual or automatic mode).
+- **int ultrasonicThreshold**, **int LDRThreshold**: Threshold values for sensors.
+- **int rgbColorRed**, **int rgbColorGreen**, **int rgbColorBlue**: Intensity values for LED colors.
+- **int lastUltrasonicLoggerIndex**, **int lastLDRLoggerIndex**: Last indices where sensor data was logged.
+- **const int backStates[5]**: Array containing back option numbers for each submenu.
+- **byte option**, **byte step**: Variables for managing menu navigation and function execution.
+- **int samplingRate**: Variable for sensor sampling rate.
+
+### Functions Description:
+- `setup()`: Initializes the Arduino setup, including serial communication and pin configurations.
+- `loop()`: Main program loop handling menu navigation, sensor reading, and function calling.
+- `ledAlertMode(byte, byte)`: Controls the LED based on sensor alerts and mode.  
+- `manualColorControl(int, byte&)`: Allows manual control of the LED's color intensity.
+- `setColorIntensity(const int, int&)`: Sets the intensity of a specific LED color.
+- `displayLoggedData(int, byte&)`: Displays logged sensor data.
+- `currentSensorSettings(int, byte&)`: Displays current sensor settings.
+- `currentSensorReadings(int, byte&)`: Manages the display of current sensor readings.
+- `generateOption(int, byte)`: Generates the option value for menu navigation.
+- `callFunction(byte, int, byte&)`: Calls a specific function based on the current menu option.
+- `getParentState(byte)`: Returns the parent menu state of a given option.
+- `printParentMenu(byte)`: Prints the menu corresponding to a parent state.
+- `readNumber()`: Reads a complete number from the Serial input.
+- `getStateIndex(int)`: Returns the index of a state for the `backStates` array.
+- `mainMenu()`, `sensorSettings()`, `resetLoggerData()`, `systemStatus()`, `rgbLedControl()`: Functions to print various menus.
+- `sensorsSamplingInterval(int, byte&)`, `ultrasonicSensorRead()`, `LDRSensorRead()`, `readSensors()`, `ultrasonicAlertThreshold(int, byte&)`, `LDRAlertThreshold(int, byte&)`: Functions for managing sensor settings and readings.
+- `resetLoggerData_YES(int, byte&)`: Manages the reset of logged sensor data.
+- `storeUltrasonicEEPROM(int)`, `resetUltrasonicLoggerData()`, `storeLDREEPROM(int)`, `resetLDRLoggerData()`: Functions for storing and resetting sensor data in EEPROM.
+- `printUltrasonicLoggers()`, `printLDRLoggers()`: Functions to print logged data from sensors.
+- `clearEEPROM()`: Clears all data in EEPROM.
+- `getEEPROMVars()`: Retrieves stored variables from EEPROM.
+
 
 
 ### Bonus:
+- live printing the actual state of the LED near `Toggle Automatic Mode ON/OFF` submenu option
+- option to reset loggers individually
+
 
 ### Code 
 💻 https://github.com/Tudorr02/IntroductionToRobotics/blob/main/5th%20Homework%20-%20Pseudo-smart%20environment%20monitor%20and%20logger/Tema5.ino
