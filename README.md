@@ -7,7 +7,8 @@
   |[1st Homework ](#homework-1)| PWM RGB |
   |[2nd Homework ](#homework-2)| Elevator Wannabe|
   |[3rd Homework ](#homework-3)| 7 segment display drawing|
-  |[4th Homework ](#homework-4)| Stopwatch timer|                
+  |[4th Homework ](#homework-4)| Stopwatch timer|  
+  |[5th Homework ](#homework-5)| Pseudo-smart environment monitor and logger|  
   
   
   ![myimage](https://media.giphy.com/media/tczJoRU7XwBS8/giphy.gif)
@@ -156,6 +157,39 @@ The `writeReg` function updates the shift register with the current digit's enco
 💻 https://github.com/Tudorr02/IntroductionToRobotics/blob/main/4th%20Homework%20-%20Stopwatch%20timer/Laborator_5.ino
 ### Photo
 <img src="https://github.com/Tudorr02/IntroductionToRobotics/assets/92024989/e4aad90a-bc49-402a-8487-0e69bbd861e5" width="500" height="500">
+
+### Video
+https://youtube.com/shorts/RqltP6ljy88?feature=share
+
+### Sources: 
+- *Debounce on a Pushbutton template* : https://docs.arduino.cc/built-in-examples/digital/Debounce
+- *Debounce using interrupts template* : https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/
+
+##### [back to top](#introduction-to-robotics-2023-2024-)
+
+# Homework 5
+> Develop a ”Smart Environment Monitor and Logger” using Arduino.  This system will utilize various sensors to gather environmental data, log this data intoEEPROM, and provide both visual feedback via an RGB LED and user interac-tion through a Serial Menu.  The project focuses on integrating sensor readings,memory management, Serial Communication and the general objective of build-ing a menu.
+ ### Workflow / Requirements:
+  
+  ### Implementation details
+      
+  #### *Components Used*
+
+#### *State Machine*
+
+The code utilizes a state machine with different states:
+
+- `INITIAL_STATE`: Initial state for setup.
+- `COUNTING_STATE`: Stopwatch is actively counting.
+- `PAUSE_STATE`: Stopwatch is paused.
+- `LAP_STATE_ADD`: Lap is added during counting state.
+- `LAP_STATE_CYCLE`: Cycling through lap display.
+
+### Bonus:
+
+### Code 
+💻 
+### Photo
 
 ### Video
 https://youtube.com/shorts/RqltP6ljy88?feature=share
