@@ -1,5 +1,18 @@
 # Introduction To Robotics 2023-2024 🤖
   This GitHub repository is dedicated to my laboratory homeworks.<br />
+  
+
+  |Homework |Name|
+  |:---:|:---:|
+  |[1st Homework ](#homework-1)| PWM RGB |
+  |[2nd Homework ](#homework-2)| Elevator Wannabe|
+  |[3rd Homework ](#homework-3)| 7 segment display drawing|
+  |[4th Homework ](#homework-4)| Stopwatch timer|  
+  |[5th Homework ](#homework-5)| Pseudo-smart environment monitor and logger|  
+  
+  
+  ![myimage](https://media.giphy.com/media/tczJoRU7XwBS8/giphy.gif)
+
 
   ## Each homework contains :
    - requirements
@@ -8,7 +21,8 @@
    - picture of the setup
    - video
 
-## Homework 1
+## Homework 1  
+
   ### Requirements
   Use a separate potentiometer for controlling each color of the RGB LED : Red, Green and Blue. This control must leverage digital electronics. Specifically, you need to read the potentiometer’s value with Arduino and then write a mapped value to the LED pins.
 
@@ -25,7 +39,10 @@
 ### Video
 https://youtube.com/shorts/UV9fsi2b-7M
 
+##### [back to top](#introduction-to-robotics-2023-2024-)
+
 ## Homework 2
+  > This  assignment  involves  simulating  a  3-floor  elevator  control  system  usingLEDs, buttons, and a buzzer with Arduino.
   ### Requirements
   Design  a  control  system  that  simulates  a  3-floor  elevator  using  the  Arduinoplatform. 
   - LED Indicators: Each of the 3 LEDs should represent one of the 3 floors.The LED corresponding to the current floor should light up.  Additionally,another LED should represent the elevator’s operational state.  It shouldblink when the elevator is moving and remain static when stationary.
@@ -57,8 +74,10 @@ It manages the floor LED indicators and the movement of the elevator between flo
 
 ### Video
 [https://youtube.com/shorts/UV9fsi2b-7M](https://youtu.be/b93LjvrGLxs)https://youtu.be/b93LjvrGLxs
+##### [back to top](#introduction-to-robotics-2023-2024-)
 
 # Homework 3
+  > This project controls the position of the segment and ”draw” it on the display.  The movement between segments should be natural, meaning they should jump from the current positiononly to neighbors, but without passing through ”walls”.
   ### Requirements
    The  initial  position  should  be  on  the  DP.  The  currentposition always blinks (irrespective of the fact that the segment is on oroff).  Use the joystick to move from one position to neighbors (see table forcorresponding movement).  Short pressing the button toggles the           segmentstate  from  ON  to  OFF  or  from  OFF  to  ON.  Long  pressing  the  buttonresets the entire display by turning all the segments OFF and moving thecurrent position to the decimal point. Use `interrupts`!
    #### Be careful :
@@ -84,5 +103,99 @@ It manages the floor LED indicators and the movement of the elevator between flo
 
 ### Video
 [https://youtube.com/shorts/UV9fsi2b-7M](https://youtube.com/shorts/Bmy6azuQxgY?si=GB1e-MOokvwtQPSW)https://youtube.com/shorts/Bmy6azuQxgY?si=GB1e-MOokvwtQPSW
+##### [back to top](#introduction-to-robotics-2023-2024-)
+# Homework 4
+> Using the 4 digit 7 segment display and 3 buttons, you should implement a stopwatch timer that counts in 10ths of a secondand has a save lap functionality (similar to most basic stopwatch functionson most phones).
+  ### Requirements
+   The starting value of the 4 digit 7 segment display shouldbe ”000.0”.  Your buttons should have the following functionalities:
+   - Button 1:  Start / pause.
+   - Button  2:   Reset  (if  in  pause  mode).   Reset  saved  laps  (if  in  lapviewing mode).
+  - Button 3:  Save lap (if in counting mode), cycle through last savedlaps (up to 4 laps).
+   #### Workflow:
+   1.  Display shows ”000.0”.  When pressing theStartbutton, the timershould start.
+   2.  During timer counter, each time you press the lap button, you shouldsave  that  timer’s  value  in  memory  (not  persistent,  it  is  OK  to  bedeleted upon reset), up to 4 laps (or more if you want); pressing the5th  time  should  override  the  1st  saved  one.   If  you  press  the  resetbutton while timer works, nothing happens.  If you press the pausebutton, the timer stops.
+   3. InPauseMode, the lap flag button doesn’t work anymore.  Pressingthe reset button resets you to 000.0.
+   4. After reset, you can now press the flag buttons to cycle through thelap times.  Each time you press the flag button, it takes you to thenext saved lap.  Pressing it continuously should cycle you through itcontinuously.  Pressing the reset button while in this state resets allyour flags and takes the timer back to ”000.0”.
+   #### Be careful :
+   -  Make sure you put the dot ”.” on the display to separate the secondsfrom the 10ths of a second
+  - You should display all the digits.  For example,  if you have ”20.4”seconds, you should display ”020.4”.
+   -  For  CTI,  interrupts  are  mandatory  for  thesave  lap  and  pausebutton.   This  is  to  increase  precision  of  counting.   For  ComputerScience, these are bonus.
+
+  ### Implementation details
+      
+  #### *Components Used*
+
+- Shift Register: Connections to the shift register are defined using `latchPin`, `clockPin`, and `dataPin` for efficient control of the 4-digit 7-segment display.
+- Digit Control Pins: Pins `segD1`, `segD2`, `segD3`, and `segD4` are used to control which digit is currently active for displaying.
+- Button Pins: Buttons for Start/Pause (`buttonPin[0]`), Reset (`buttonPin[1]`), and LAP (`buttonPin[2]`).
+
+#### *State Machine*
+
+The code utilizes a state machine with different states:
+
+- `INITIAL_STATE`: Initial state for setup.
+- `COUNTING_STATE`: Stopwatch is actively counting.
+- `PAUSE_STATE`: Stopwatch is paused.
+- `LAP_STATE_ADD`: Lap is added during counting state.
+- `LAP_STATE_CYCLE`: Cycling through lap display.
+
+#### *Display and Encoding*
+- Hexadecimal encodings (0-F) for the 7-segment display are defined in the `byteEncodings` array.
+- The `writeNumber` function converts a given number to its corresponding 7-segment display encoding.
+#### *Button Handling and Debouncing*
+Interrupts are used for button debouncing (`btnDebounce` function). The `attachInterrupt` function is utilized to trigger specific actions on button presses.
+#### *Lap Functionality*
+Laps are stored in an array (`laps`) with a specified lap count (`lapCount`). Laps are added, and the lap display is cycled through during the LAP state.
+#### *Display Update and Shift Register*
+The `writeReg` function updates the shift register with the current digit's encoding. The `activateDisplay` function manages which digit is currently active.
 
 
+
+### Bonus:
+- Empty LAP is displayed as `_ _ _ _`
+### Code 
+💻 https://github.com/Tudorr02/IntroductionToRobotics/blob/main/4th%20Homework%20-%20Stopwatch%20timer/Laborator_5.ino
+### Photo
+<img src="https://github.com/Tudorr02/IntroductionToRobotics/assets/92024989/e4aad90a-bc49-402a-8487-0e69bbd861e5" width="500" height="500">
+
+### Video
+https://youtube.com/shorts/RqltP6ljy88?feature=share
+
+### Sources: 
+- *Debounce on a Pushbutton template* : https://docs.arduino.cc/built-in-examples/digital/Debounce
+- *Debounce using interrupts template* : https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/
+
+##### [back to top](#introduction-to-robotics-2023-2024-)
+
+# Homework 5
+> Develop a ”Smart Environment Monitor and Logger” using Arduino.  This system will utilize various sensors to gather environmental data, log this data intoEEPROM, and provide both visual feedback via an RGB LED and user interac-tion through a Serial Menu.  The project focuses on integrating sensor readings,memory management, Serial Communication and the general objective of build-ing a menu.
+ ### Workflow / Requirements:
+  
+  ### Implementation details
+      
+  #### *Components Used*
+
+#### *State Machine*
+
+The code utilizes a state machine with different states:
+
+- `INITIAL_STATE`: Initial state for setup.
+- `COUNTING_STATE`: Stopwatch is actively counting.
+- `PAUSE_STATE`: Stopwatch is paused.
+- `LAP_STATE_ADD`: Lap is added during counting state.
+- `LAP_STATE_CYCLE`: Cycling through lap display.
+
+### Bonus:
+
+### Code 
+💻 
+### Photo
+
+### Video
+https://youtube.com/shorts/RqltP6ljy88?feature=share
+
+### Sources: 
+- *Debounce on a Pushbutton template* : https://docs.arduino.cc/built-in-examples/digital/Debounce
+- *Debounce using interrupts template* : https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/
+
+##### [back to top](#introduction-to-robotics-2023-2024-)
