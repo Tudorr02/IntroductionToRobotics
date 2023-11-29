@@ -360,13 +360,13 @@ https://youtu.be/9sSg39AyvPg
 ### Code 
 💻 https://github.com/Tudorr02/IntroductionToRobotics/blob/main/4th%20Homework%20-%20Stopwatch%20timer/Laborator_5.ino
 ### Photo
-<img src="https://github.com/Tudorr02/IntroductionToRobotics/assets/92024989/e4aad90a-bc49-402a-8487-0e69bbd861e5" width="500" height="500">
+<img src="https://github.com/Tudorr02/IntroductionToRobotics/assets/92024989/77a9e149-4f1f-4704-9f2a-7fcbd102ae3a" width="500" height="500">
+<img src="https://github.com/Tudorr02/IntroductionToRobotics/assets/92024989/7614df36-bf1e-4267-8430-38547f32f53a" width="500" height="500">
 
 ### Video
-https://youtube.com/shorts/RqltP6ljy88?feature=share
+[https://youtube.com/shorts/RqltP6ljy88?feature=share](https://youtu.be/n3jlpPuWBoU)
 
 ### Sources: 
-- *Debounce on a Pushbutton template* : https://docs.arduino.cc/built-in-examples/digital/Debounce
 - *Debounce using interrupts template* : https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/
 
 ##### [back to top](#introduction-to-robotics-2023-2024-)
