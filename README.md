@@ -9,7 +9,7 @@
   |[3rd Homework ](#homework-3)| 7 segment display drawing|
   |[4th Homework ](#homework-4)| Stopwatch timer|  
   |[5th Homework ](#homework-5)| Pseudo-smart environment monitor and logger|  
-  
+  |[6th Homework ](#homework-6)| Mini Matrix Game | 
   
   ![myimage](https://media.giphy.com/media/tczJoRU7XwBS8/giphy.gif)
 
@@ -291,5 +291,85 @@ https://youtu.be/9sSg39AyvPg
 
 ### Sources: 
 - _minimizing_ the percentage of dynamic memory usage :  https://www.baldengineer.com/arduino-f-macro.html
+
+##### [back to top](#introduction-to-robotics-2023-2024-)
+
+# Homework 6
+> Develop a small game on the 8x8 matrix. The purpose of this is to get you started with your matrix project.  
+  ### Requirements
+   The game must have at least 3 typesof elements:  player (blinks slowly),  bombs/bullets (blinks fast),  wall (doesn’tblink).Thebasic idea is that you generate walls on the map (50% - 75% of the map) and thenyou move around with the player and destroy them.  You can do it Bombermanstyle or terminator-tanks style (or another way, be creative). 
+  
+   #### Be careful :
+  - LED Differentiating:The player and the bombs/bullets need to blinkat  different  rates.   The  player  should  blink  slowly  and  the  bomb/bulletshould blink fast.  The wall should not blink at all.
+  - Control:Ensure that control is smooth.  You can implement any type ofcontrol you want on the joystick, but make sure it is ”pleasant” to playwith.
+  - Control:Ensure that you do not generate walls on top of the player when the game starts.
+  ### Implementation details
+      
+  #### *Components Used*
+
+- Arduino Uno Board
+- Joystick
+- 8x8 LED Matrix
+- MAX7219
+- Resistors and capacitors as needed
+- Breadboard and connecting wires
+
+## Key Variables and Constants
+
+- **Pins:**
+  - `dinPin`, `clockPin`, `loadPin`: Pins connecting the Arduino to the MAX7219 LED matrix.
+  - `xPin`, `yPin`, `swPin`: Pins for joystick inputs.
+
+- **Game Mechanics:**
+  - `matrixSize`: Size of the LED matrix (8x8).
+  - `xPos`, `yPos`: Current position of the 'player' on the LED matrix.
+  - `explosion`, `lastTrigger`, `destroyArea`: Variables controlling the 'bomb' feature in the game.
+  - `timer`, `timerDelay`, `lastTimer`: Variables for managing a countdown timer.
+  - `occupancyRate`: Determines complexity by setting the density of 'walls' on the LED matrix.
+  - `score`: Tracks the player's score.
+
+## Functions
+
+- **setup()**: Initializes serial communication, sets up the LED matrix, joystick inputs, and initializes the game state (map, player position).
+- **loop()**: The main game loop handling game timing, player movement, bomb planting, and blinking effects.
+- **generateMap(byte occupancyRate)**: Generates a random map on the LED matrix based on the occupancy rate.
+- **generatePlayerPos()**: Randomly positions the player on the matrix at game start.
+- **updateMap()**: Updates the LED matrix to reflect the current game state.
+- **endGame()**: Handles the termination of the game, displaying the score and the destruction rate.
+- **updatePositions()**: Reads joystick input and updates the player's position.
+- **blinkPlayer()**: Blinks the player's LED to make it distinguishable.
+- **countScore(byte destroyArea)**: Calculates the score based on the number of walls destroyed.
+- **destroyAreaState(byte state, byte destroyArea)**: Updates the state of LEDs in the bomb's area of effect.
+- **plantBomb(byte destroyArea)**: Handles the bomb planting and explosion animation.
+- **bombTrigger()**: Interrupt service routine for the joystick button, triggering the bomb.
+
+## Gameplay Mechanics
+
+- The player moves a dot (representing themselves) on the LED matrix using the joystick.
+- The matrix contains randomly placed 'walls' (LEDs turned on) based on the occupancy rate.
+- Pressing the joystick button plants a bomb, destroying adjacent walls and increasing the player's score.
+- A countdown timer dictates the duration of each game session.
+
+## Special Features
+
+- **Bomb Mechanism**: An important game feature where the player can plant a bomb to destroy nearby walls.
+- **Timer-Based Game End**: The game ends when the timer reaches zero, at which point the score and destruction rate are displayed.
+- **Reset Function**: A function pointer `resetFunc` is used to reset the game if needed.
+
+
+
+### Bonus:
+- Empty LAP is displayed as `_ _ _ _`
+### Code 
+💻 https://github.com/Tudorr02/IntroductionToRobotics/blob/main/4th%20Homework%20-%20Stopwatch%20timer/Laborator_5.ino
+### Photo
+<img src="https://github.com/Tudorr02/IntroductionToRobotics/assets/92024989/e4aad90a-bc49-402a-8487-0e69bbd861e5" width="500" height="500">
+
+### Video
+https://youtube.com/shorts/RqltP6ljy88?feature=share
+
+### Sources: 
+- *Debounce on a Pushbutton template* : https://docs.arduino.cc/built-in-examples/digital/Debounce
+- *Debounce using interrupts template* : https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/
 
 ##### [back to top](#introduction-to-robotics-2023-2024-)
