@@ -358,7 +358,7 @@ https://youtu.be/9sSg39AyvPg
 
 
 ### Code 
-💻 https://github.com/Tudorr02/IntroductionToRobotics/blob/main/4th%20Homework%20-%20Stopwatch%20timer/Laborator_5.ino
+💻 https://github.com/Tudorr02/IntroductionToRobotics/blob/main/6-th%20Homework%20-%20Mini%20Matrix%20Game/Tema6.ino
 ### Photo
 <img src="https://github.com/Tudorr02/IntroductionToRobotics/assets/92024989/77a9e149-4f1f-4704-9f2a-7fcbd102ae3a" width="500" height="500">
 <img src="https://github.com/Tudorr02/IntroductionToRobotics/assets/92024989/7614df36-bf1e-4267-8430-38547f32f53a" width="500" height="500">
