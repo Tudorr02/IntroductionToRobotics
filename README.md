@@ -357,9 +357,6 @@ https://youtu.be/9sSg39AyvPg
 - **Reset Function**: A function pointer `resetFunc` is used to reset the game if needed.
 
 
-
-### Bonus:
-- Empty LAP is displayed as `_ _ _ _`
 ### Code 
 💻 https://github.com/Tudorr02/IntroductionToRobotics/blob/main/4th%20Homework%20-%20Stopwatch%20timer/Laborator_5.ino
 ### Photo
