@@ -1,4 +1,4 @@
-# Introduction To Robotics 2023-2024 🤖
+![image](https://github.com/Tudorr02/IntroductionToRobotics/assets/92024989/d97975dc-506d-4418-84de-0bbdb97e06b2)# Introduction To Robotics 2023-2024 🤖
   This GitHub repository is dedicated to my laboratory homeworks.<br />
   
 
@@ -10,6 +10,7 @@
   |[4th Homework ](#homework-4)| Stopwatch timer|  
   |[5th Homework ](#homework-5)| Pseudo-smart environment monitor and logger|  
   |[6th Homework ](#homework-6)| Mini Matrix Game | 
+  |[7th Homework ](#homework-6)| Matrix Project Checkpoint |
   
   ![myimage](https://media.giphy.com/media/tczJoRU7XwBS8/giphy.gif)
 
@@ -368,5 +369,71 @@ https://youtu.be/9sSg39AyvPg
 
 ### Sources: 
 - *Debounce using interrupts template* : https://www.arduino.cc/reference/en/language/functions/external-interrupts/attachinterrupt/
+
+##### [back to top](#introduction-to-robotics-2023-2024-)
+
+
+
+
+
+
+
+# Homework 7
+>  Matrix Project Checkpoint
+  ### Requirements
+   Develop a menu which will be displayed on an LCD screen and navigated using a joystick. This interface is crucial for enhancing the gaming experience by allowing players to easily navigate through various game options. 
+  
+  Add the following functionality for this checkpoint:
+  
+ ### 1. Intro Message
+   -  When  powering  up  the  project,  a  greeting  message should be shown for a few moments.
+ ### 2. Menu:
+  - Start game, starts the initial level of the game
+  - Settings.
+    - LCD  brightness  control.   Save  value  to  EEPROM  and  load  itupon system start.
+    - Matrix brightness control (see function setIntesnity from the led-Control library). Make sure to display something on the matrixwhen  selecting  it.   Save  value  to  EEPROM  and  load  it  upon system start.
+    - About:should include details about the creator(s) of the game.  Atleast game name, author and github link or user (use scrolling text?).
+### 3. End Message
+  - When the game ends, add a message.  Wait for a promtfrom the user (a button push, for example), before returning to main menu again.
+### 4. During gameplay:
+  - Show  relevant  details,  that  are  dynamic  (change  with  gameplay):time,  level,  lives etc.  Doesn’t matter,  what can be used.  You canimplement the number of LEDs that are still switched on.
+  - Implement an end game / level functionality.  You current gameshould end.  For example,  if you implemented the game where you”destroy”  all  the  LEDs,  it  should  end  when  you  finished  them  all.Upon ending, it should display the aforementioned message, wait foruser prompt and then return to the main menu again.
+
+## *Components Used*
+  
+1. **Arduino Board**
+2. **Liquid Crystal Display (LCD)**
+3. **LED Matrix**
+4. **Analog Joystick**
+5. **EEPROM**
+7. **Custom Characters**
+
+   
+## Implementation details
+      
+- **`setup()`**: Initializes the Arduino setup, including serial communication and pin configurations.
+- **`loop()`**: Main program loop handling menu navigation, sensor reading, and function calling.
+- **`introMessage()`**: Displays the game title "Impossible Road" and animates custom characters on the LCD to simulate a loading bar.
+- **`joystickControl()`**: Reads joystick inputs and returns the direction of movement.
+- **`buttonPressed()`**: Interrupt service routine for joystick button press, handling debouncing and setting the 'pressed' flag.
+- **`menuPrint(byte SORow, char * options[])`**: Function to print menu options on the LCD.
+- **`generateOption(byte value)`**: Generates menu option based on joystick input.
+- **`setParentOption()`**: Adjusts selectedOption to return to the parent menu.
+- **`updateMenuPrint(byte & SORow, byte length)`**: Updates the menu display based on joystick movement.
+- **`settingsMenu()`**: Handles the display and navigation of the settings menu.
+- **`aboutMenu()`**: Displays the about message with scrolling effect.
+- **`lcdBrightness()`**: Adjusts the brightness of the LCD display.
+- **`matrixBrightness()`**: Adjusts the brightness of the LED matrix display.
+- **`Menu()`**: General menu handling function.
+- **`setCustomCharacters()`**: Defines custom characters for LCD display.
+- **`getEEPROMVals()`**: Retrieves stored values from EEPROM.
+- **`setLCDBrightness(byte lcdBrightnessVal)`**: Sets the brightness of the LCD.
+- **`matrixConfiguration()`**: Configures the LED matrix settings.
+
+
+### Code 
+💻 [https://github.com/Tudorr02/IntroductionToRobotics/blob/main/6-th%20Homework%20-%20Mini%20Matrix%20Game/Tema6.ino](https://github.com/Tudorr02/IntroductionToRobotics/blob/main/7-th%20Homework%20-%20Matrix%20Project%20Checkpoint%20v1.1/tema7.ino)
+### Photo
+<img src="https://github.com/Tudorr02/IntroductionToRobotics/assets/92024989/cd681967-0377-4d7f-a9b2-efd854a75b05" width="700" height="500">
 
 ##### [back to top](#introduction-to-robotics-2023-2024-)
