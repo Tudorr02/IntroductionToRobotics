@@ -10,7 +10,7 @@
   |[4th Homework ](#homework-4)| Stopwatch timer|  
   |[5th Homework ](#homework-5)| Pseudo-smart environment monitor and logger|  
   |[6th Homework ](#homework-6)| Mini Matrix Game | 
-  |[7th Homework ](#homework-6)| Matrix Project Checkpoint |
+  |[7th Homework ](#homework-7)| Matrix Project Checkpoint |
   
   ![myimage](https://media.giphy.com/media/tczJoRU7XwBS8/giphy.gif)
 
