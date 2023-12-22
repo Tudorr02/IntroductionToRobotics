@@ -1,4 +1,4 @@
-![image](https://github.com/Tudorr02/IntroductionToRobotics/assets/92024989/d97975dc-506d-4418-84de-0bbdb97e06b2)# Introduction To Robotics 2023-2024 🤖
+# Introduction To Robotics 2023-2024 🤖
   This GitHub repository is dedicated to my laboratory homeworks.<br />
   
 
