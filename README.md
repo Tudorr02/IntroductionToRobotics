@@ -436,4 +436,7 @@ https://youtu.be/9sSg39AyvPg
 ### Photo
 <img src="https://github.com/Tudorr02/IntroductionToRobotics/assets/92024989/cd681967-0377-4d7f-a9b2-efd854a75b05" width="700" height="500">
 
+### Video
+[https://youtube.com/shorts/UV9fsi2b-7M](https://www.youtube.com/watch?v=YDh5qAnhMqQ)
+
 ##### [back to top](#introduction-to-robotics-2023-2024-)
